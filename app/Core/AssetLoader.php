@@ -1,0 +1,94 @@
+<?php
+
+declare(strict_types=1);
+
+final class AssetLoader
+{
+    private string $baseUrl;
+    private string $environment;
+    private string $manifestPath;
+    private string $viteDevServer;
+
+    public function __construct(array $config)
+    {
+        $this->baseUrl = rtrim((string) $config['base_url'], '/');
+        $this->environment = (string) $config['environment'];
+        $this->manifestPath = (string) $config['manifest_path'];
+        $this->viteDevServer = rtrim((string) $config['vite_dev_server'], '/');
+
+        if (!in_array($this->environment, ['development', 'production'], true)) {
+            throw new InvalidArgumentException('APP_ENV must be development or production.');
+        }
+    }
+
+    public function renderStylesheet(string $path): string
+    {
+        $url = $this->baseUrl . '/' . ltrim($path, '/');
+
+        return sprintf(
+            '<link rel="stylesheet" href="%s">' . PHP_EOL,
+            $this->escape($url)
+        );
+    }
+
+    public function renderScripts(string $entry): string
+    {
+        if ($this->environment === 'development') {
+            return $this->renderDevelopmentScripts($entry);
+        }
+
+        return $this->renderProductionScripts($entry);
+    }
+
+    private function renderDevelopmentScripts(string $entry): string
+    {
+        $entry = '/' . ltrim($entry, '/');
+
+        return sprintf(
+            '<script type="module" src="%s/@vite/client"></script>' . PHP_EOL
+            . '<script type="module" src="%s%s"></script>' . PHP_EOL,
+            $this->escape($this->viteDevServer),
+            $this->escape($this->viteDevServer),
+            $this->escape($entry)
+        );
+    }
+
+    private function renderProductionScripts(string $entry): string
+    {
+        if (!is_file($this->manifestPath) || !is_readable($this->manifestPath)) {
+            throw new RuntimeException('Vite manifest is missing or unreadable.');
+        }
+
+        $manifestContent = file_get_contents($this->manifestPath);
+
+        if ($manifestContent === false) {
+            throw new RuntimeException('Unable to read Vite manifest.');
+        }
+
+        $manifest = json_decode($manifestContent, true, 512, JSON_THROW_ON_ERROR);
+
+        if (!isset($manifest[$entry]['file'])) {
+            throw new RuntimeException('Vite entry not found in manifest: ' . $entry);
+        }
+
+        $output = '';
+
+        foreach ($manifest[$entry]['css'] ?? [] as $cssFile) {
+            $output .= $this->renderStylesheet('assets/build/' . $cssFile);
+        }
+
+        $scriptUrl = $this->baseUrl . '/assets/build/' . ltrim($manifest[$entry]['file'], '/');
+
+        $output .= sprintf(
+            '<script type="module" src="%s"></script>' . PHP_EOL,
+            $this->escape($scriptUrl)
+        );
+
+        return $output;
+    }
+
+    private function escape(string $value): string
+    {
+        return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    }
+}
