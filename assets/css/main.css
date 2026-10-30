@@ -1,5 +1,0 @@
-@import url(./setting.css);
-@import url(./landing.css);
-@import url(./mobile/mobile.css) only screen and (max-width: 599px);
-@import url(./tablet/tablet.css) only screen and (min-width: 600px) and (max-width: 1009px);
-@import url(./desktop/desktop.css) only screen and (min-width: 1010px);

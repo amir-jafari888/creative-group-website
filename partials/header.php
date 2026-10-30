@@ -1,14 +1,5 @@
-<header class="site-header">
-    <div class="container header-inner">
-        <a class="brand" href="#top" aria-label="Creative Technology Group - صفحه اصلی">
-            <span class="brand-mark" aria-hidden="true">C<span>+</span></span>
-            <span class="brand-name">CREATIVE <strong>TECHNOLOGY</strong><small>GROUP</small></span>
-        </a>
-        <nav class="main-nav" aria-label="ناوبری اصلی">
-            <a href="#services">خدمات</a>
-            <a href="#about">درباره ما</a>
-            <a href="#work">حوزه‌های تخصصی</a>
-        </nav>
-        <a class="header-cta" href="#contact">شروع یک پروژه <span aria-hidden="true">↗</span></a>
-    </div>
-</header>
+<header class="site-header"><div class="container header-inner">
+<a class="brand" href="#top" aria-label="Creative Technology Group"><span class="brand-mark" aria-hidden="true">C<span>+</span></span><span class="brand-name">CREATIVE <strong>TECHNOLOGY</strong><small>GROUP</small></span></a>
+<nav class="main-nav" aria-label="<?= $t('ناوبری اصلی','Main navigation') ?>"><a href="#top"><?= $t('خانه','Home') ?></a><a href="#services"><?= $t('خدمات','Services') ?></a><a href="#work"><?= $t('نمونه‌کارها','Work') ?></a><a href="#about"><?= $t('درباره ما','About') ?></a><a href="#contact"><?= $t('تماس','Contact') ?></a></nav>
+<div class="header-actions"><a class="language-switch" href="<?= htmlspecialchars($languageUrl($isEn?'fa':'en'),ENT_QUOTES,'UTF-8') ?>" lang="<?= $isEn?'fa':'en' ?>" aria-label="<?= $t('تغییر زبان به انگلیسی','Switch language to Persian') ?>"><?= $isEn?'FA':'EN' ?></a><a class="header-cta" href="#contact"><?= $t('درخواست مشاوره','Book a consultation') ?> <span class="icon-arrow" aria-hidden="true">↗</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="<?= $t('باز کردن منو','Open menu') ?>"><span></span><span></span></button></div></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="<?= $t('ناوبری موبایل','Mobile navigation') ?>" hidden><a href="#top"><?= $t('خانه','Home') ?></a><a href="#services"><?= $t('خدمات','Services') ?></a><a href="#work"><?= $t('نمونه‌کارها','Work') ?></a><a href="#about"><?= $t('درباره ما','About') ?></a><a href="#contact"><?= $t('تماس','Contact') ?></a><a class="mobile-language" href="<?= htmlspecialchars($languageUrl($isEn?'fa':'en'),ENT_QUOTES,'UTF-8') ?>"><?= $isEn?'فارسی':'English' ?></a></nav></header>

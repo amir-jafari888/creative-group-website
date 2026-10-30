@@ -1,34 +1,7 @@
-<section class="section services-section" id="services">
-    <div class="container">
-        <div class="section-heading">
-            <div><p class="eyebrow"><span class="eyebrow-line"></span> WHAT WE DO</p><h2>از ایده تا اجرا،<br><span>همه‌چیز یک‌جا.</span></h2></div>
-            <p class="section-intro">ترکیبی از تخصص‌های خلاق و فنی برای ساختن برند، محصول و محتوایی که دیده شود و اثر بگذارد.</p>
-        </div>
-        <div class="service-grid">
-            <article class="service-card service-card-featured">
-                <span class="service-number">01 / DIGITAL</span><div class="service-icon icon-digital" aria-hidden="true"><span></span><i></i></div>
-                <h3>توسعه دیجیتال</h3><p>تجربه‌های دیجیتال کاربردی، سریع و خوش‌ساخت برای رشد کسب‌وکار شما.</p>
-                <ul><li>طراحی و توسعه وب‌سایت</li><li>طراحی اپلیکیشن</li><li>طراحی تجربه و رابط کاربری</li></ul>
-                <a href="#contact" aria-label="درخواست خدمات توسعه دیجیتال">↗</a>
-            </article>
-            <article class="service-card">
-                <span class="service-number">02 / BRAND & GRAPHIC</span><div class="service-icon icon-brand" aria-hidden="true"><b></b><i></i></div>
-                <h3>هویت بصری و گرافیک</h3><p>ساخت تصویری یکپارچه و متمایز که شخصیت برند شما را روایت کند.</p>
-                <ul><li>طراحی لوگو و هویت برند</li><li>طراحی گرافیک و بنر تبلیغاتی</li><li>طراحی اقلام تبلیغاتی</li></ul>
-                <a href="#contact" aria-label="درخواست خدمات هویت بصری">↗</a>
-            </article>
-            <article class="service-card">
-                <span class="service-number">03 / MOTION & MEDIA</span><div class="service-icon icon-motion" aria-hidden="true"><span>▶</span></div>
-                <h3>رسانه و موشن</h3><p>تبدیل پیام برند به محتوای دیدنی، شنیدنی و به‌یادماندنی.</p>
-                <ul><li>موشن‌گرافیک و لوگوموشن</li><li>تولید و تدوین ویدیو</li><li>مدیریت و تولید محتوای اینستاگرام</li></ul>
-                <a href="#contact" aria-label="درخواست خدمات رسانه و موشن">↗</a>
-            </article>
-            <article class="service-card">
-                <span class="service-number">04 / 3D & AI</span><div class="service-icon icon-ai" aria-hidden="true"><span>✳</span><i></i></div>
-                <h3>سه‌بعدی، فضا و هوش مصنوعی</h3><p>کشف راه‌های تازه برای تصویرسازی، طراحی فضا و تولید محتوای هوشمند.</p>
-                <ul><li>طراحی سه‌بعدی و دکوراسیون</li><li>تولید عکس و ویدیو با هوش مصنوعی</li><li>تولید موسیقی با هوش مصنوعی</li></ul>
-                <a href="#contact" aria-label="درخواست خدمات سه‌بعدی و هوش مصنوعی">↗</a>
-            </article>
-        </div>
-    </div>
-</section>
+<?php
+$services=[
+['01','DIGITAL','توسعه دیجیتال','Digital experiences','طراحی و توسعه وب‌سایت و اپلیکیشن، رابط و تجربه کاربری و محصولات دیجیتال.','Websites and apps, interface and experience design, and digital products.',['طراحی و توسعه وب‌سایت','طراحی و توسعه اپلیکیشن','طراحی UI/UX','طراحی محصول دیجیتال'],['Web design & development','App design & development','UI/UX design','Digital product design'],'photo-1460925895917-afdab827c52f'],
+['02','BRAND','هویت برند و گرافیک','Brand identity & graphic design','ساخت هویت بصری منسجم و طراحی گرافیک برای معرفی و توسعه برند.','Distinctive visual identities and graphic systems that help brands communicate.',['طراحی لوگو و هویت بصری','طراحی گرافیک تبلیغاتی','بنر و اقلام تبلیغاتی','طراحی محتوای بصری'],['Logo & visual identity','Advertising graphic design','Campaign banners & collateral','Visual content design'],'photo-1634942536790-253a6c2a0e2d'],
+['03','MOTION','رسانه و موشن','Motion & media','تولید محتوای ویدئویی و متحرک برای روایت بهتر پیام برند.','Video and motion content that gives your brand story movement and clarity.',['موشن‌گرافیک و لوگوموشن','تولید و تدوین ویدئو','تولید محتوای شبکه‌های اجتماعی','مدیریت محتوای اینستاگرام'],['Motion graphics & logo animation','Video production & editing','Social media content','Instagram content management'],'photo-1492619375914-88005aa9e8fb'],
+['04','3D / AI','سه‌بعدی، طراحی فضا و هوش مصنوعی','3D, spatial design & AI','طراحی سه‌بعدی و داخلی در کنار تولید محتوای خلاقانه با ابزارهای هوش مصنوعی.','3D and interior design alongside creative image, video and music generation with AI tools.',['طراحی سه‌بعدی و رندرینگ','طراحی داخلی و تجسم فضا','تولید تصویر با هوش مصنوعی','تولید ویدئو و موسیقی با هوش مصنوعی'],['3D design & rendering','Interior design & spatial visualization','AI image generation','AI video & music generation'],'photo-1600607687939-ce8a6c25118c']];
+?><section class="section services-section" id="services"><div class="container"><div class="section-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span> WHAT WE DO</p><h2><?= $t('تخصص‌های متفاوت،<br><span>یک مسیر یکپارچه.</span>','Different disciplines.<br><span>One connected vision.</span>') ?></h2></div><p class="section-intro"><?= $t('از شکل‌گیری هویت برند تا ساخت محصول دیجیتال و تولید محتوا؛ خدمات ما متناسب با نیاز واقعی پروژه کنار هم قرار می‌گیرند.','From brand identity to digital products and content, our capabilities come together around the real needs of each project.') ?></p></div><div class="service-list"><?php foreach($services as $s): ?><article class="service-item"><div class="service-image"><img src="https://images.unsplash.com/<?= $s[8] ?>?auto=format&fit=crop&w=1000&q=85" alt="<?= htmlspecialchars($t($s[2],$s[3]),ENT_QUOTES,'UTF-8') ?>" loading="lazy" decoding="async"></div><div class="service-content"><span class="service-number"><?= $s[0] ?> / <?= $s[1] ?></span><h3><?= $t($s[2],$s[3]) ?></h3><p><?= $t($s[4],$s[5]) ?></p><ul><?php foreach($s[$isEn?7:6] as $item): ?><li><?= $item ?></li><?php endforeach; ?></ul><a class="service-link" href="#contact" aria-label="<?= $t('درخواست مشاوره برای ','Discuss ') . htmlspecialchars($t($s[2],$s[3]),ENT_QUOTES,'UTF-8') ?>"><span class="icon-arrow" aria-hidden="true">↗</span></a></div></article><?php endforeach; ?></div></div></section>
