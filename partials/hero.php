@@ -1,0 +1,28 @@
+<section class="hero-section" id="top">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container hero-layout">
+        <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> CREATIVE THINKING. SMART EXECUTION.</p>
+            <h1>ایده‌های بزرگ،<br><span>تجربه‌های ماندگار.</span></h1>
+            <p class="hero-description">از اولین جرقه‌ی یک ایده تا ساخت یک تجربه‌ی کامل؛ کنار شما هستیم تا خلاقیت، طراحی و فناوری را به نتیجه‌ای واقعی تبدیل کنیم.</p>
+            <div class="hero-actions">
+                <a class="button button-dark" href="#services">خدمات ما <span aria-hidden="true">↙</span></a>
+                <a class="text-link" href="#contact">درباره پروژه‌تان صحبت کنیم <span aria-hidden="true">←</span></a>
+            </div>
+            <div class="hero-note"><span class="note-dot"></span> یک تیم، برای تمام مسیر خلاقیت و رشد شما</div>
+        </div>
+        <div class="hero-art" aria-label="ترکیب انتزاعی از فرم‌های سه‌بعدی و طراحی دیجیتال">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-disc"></div>
+            <div class="art-panel panel-back"></div>
+            <div class="art-panel panel-front"><span>CREATE<br>WHAT'S<br>NEXT.</span><i>CTG / 01</i></div>
+            <div class="art-sphere"></div>
+            <div class="art-caption"><span>01 — 04</span><span>IDEAS IN MOTION</span></div>
+        </div>
+    </div>
+    <div class="container hero-bottom">
+        <span>DESIGN · TECHNOLOGY · CONTENT</span>
+        <a href="#services" aria-label="رفتن به بخش خدمات">اسکرول برای کشف بیشتر <span aria-hidden="true">↓</span></a>
+    </div>
+</section>
