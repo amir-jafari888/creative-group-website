@@ -1,0 +1,1 @@
+.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--color-border-light)}.process-grid article{padding:2rem 1.4rem 2.4rem;border-inline-end:1px solid var(--color-border-light)}.process-grid article:last-child{border:0}.process-grid h3{font-size:1.25rem;margin:1.1rem 0 .55rem}.process-grid p{font-size:.8rem;line-height:2}

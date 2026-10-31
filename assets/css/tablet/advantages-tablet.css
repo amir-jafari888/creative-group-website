@@ -1,0 +1,1 @@
+.advantage-grid{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--color-border-light)}.advantage-grid article{padding:2rem 1.4rem 2.2rem;border-inline-end:1px solid var(--color-border-light)}.advantage-grid article:last-child{border:0}.advantage-grid h3{font-size:1.15rem;margin:1rem 0 .45rem}.advantage-grid p{font-size:.78rem;line-height:1.9}

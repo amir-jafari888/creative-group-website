@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./modules/navigation.js";
-
+import navigation from "./modules/navigation.js";
 gsap.registerPlugin(ScrollTrigger);
-console.info("Creative Group frontend initialized.");
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", navigation, { once: true }); else navigation();

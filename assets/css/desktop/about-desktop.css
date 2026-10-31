@@ -1,0 +1,1 @@
+.about-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(3rem,8vw,9rem)}.about-statement h2{font-size:clamp(3rem,5.5vw,6rem)}.about-details{align-self:end;padding-bottom:.5rem}
