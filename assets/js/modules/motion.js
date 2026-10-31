@@ -13,21 +13,34 @@ function animatePageIntro() {
   const heroMeta = document.querySelectorAll(".hero-index, .hero-caption");
 
   if (header) gsap.from(header, {
-    y: -28, x: direction * 18, autoAlpha: 0, duration: 1.05,
-    ease: "power3.out", clearProps: "transform"
+    x: direction * (isMobile ? 76 : 116),
+    autoAlpha: 0,
+    duration: 1.25,
+    ease: "power4.out",
+    clearProps: "transform"
   });
 
   if (heroCopy) {
     const items = heroCopy.querySelectorAll(".eyebrow, h1, .hero-description, .hero-actions");
     gsap.from(items, {
-      x: direction * (isMobile ? 34 : 58), autoAlpha: 0, duration: 1.05,
-      stagger: 0.12, ease: "power3.out", delay: 0.12, clearProps: "transform"
+      x: direction * (isMobile ? 88 : 148),
+      autoAlpha: 0,
+      duration: 1.2,
+      stagger: 0.16,
+      ease: "power4.out",
+      delay: 0.12,
+      clearProps: "transform"
     });
   }
 
   if (heroMeta.length) gsap.from(heroMeta, {
-    y: 18, autoAlpha: 0, duration: 0.9, stagger: 0.12,
-    delay: 0.45, ease: "power2.out", clearProps: "transform"
+    x: direction * (isMobile ? 42 : 72),
+    autoAlpha: 0,
+    duration: 1,
+    stagger: 0.12,
+    delay: 0.38,
+    ease: "power3.out",
+    clearProps: "transform"
   });
 }
 
@@ -35,27 +48,38 @@ function createSectionTransitions() {
   const hero = document.querySelector(".hero-section");
   const services = document.querySelector(".services-section");
   const work = document.querySelector(".work-section");
+  const sectionOffset = isMobile ? 54 : 112;
 
-  if (hero && services) {
-    gsap.set(hero, { zIndex: 1 });
-    gsap.set(services, { position: "relative", zIndex: 2 });
-    ScrollTrigger.create({
-      trigger: hero, start: "top top", end: isMobile ? "+=65%" : "+=85%",
-      pin: true, pinSpacing: false, pinType: "transform", anticipatePin: 1, invalidateOnRefresh: true
-    });
-  }
+  // Keep the natural document scroll. ScrollTrigger pinning on consecutive
+  // sections was creating a long, confusing scroll lock at their boundaries.
+  if (hero) gsap.set(hero, { position: "relative", zIndex: 1 });
 
-  if (services && work) {
-    gsap.set(work, { position: "relative", zIndex: 3 });
-    gsap.fromTo(work, { yPercent: 9 }, {
-      yPercent: 0, ease: "none",
-      scrollTrigger: { trigger: work, start: "top bottom", end: "top top", scrub: 0.8 }
+  [services, work].forEach((section, index) => {
+    if (!section) return;
+
+    gsap.set(section, {
+      position: "relative",
+      zIndex: index + 2
     });
-    ScrollTrigger.create({
-      trigger: services, start: "top top", end: isMobile ? "+=72%" : "+=88%",
-      pin: true, pinSpacing: false, pinType: "transform", anticipatePin: 1, invalidateOnRefresh: true
+
+    // RTL sections enter from the right; LTR sections enter from the left.
+    // Scrubbing makes the same movement reverse naturally when scrolling up.
+    gsap.fromTo(section, {
+      x: direction * sectionOffset,
+      autoAlpha: 0.94
+    }, {
+      x: 0,
+      autoAlpha: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        end: "top 18%",
+        scrub: 0.65,
+        invalidateOnRefresh: true
+      }
     });
-  }
+  });
 }
 
 function createContentReveals() {
