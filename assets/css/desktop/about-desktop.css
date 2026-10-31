@@ -1,1 +1,1 @@
-.about-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(3rem,8vw,9rem)}.about-statement h2{font-size:clamp(3rem,5.5vw,6rem)}.about-details{align-self:end;padding-bottom:.5rem}
+.about-section{background:#1a1719}.about-layout{grid-template-columns:1.15fr .85fr;gap:clamp(4rem,8vw,9rem)}.about-statement h2{font-size:clamp(3.5rem,5.2vw,5.8rem)}.about-details{align-self:end;padding-bottom:.6rem}.about-details>p{font-size:.92rem}.about-audience{gap:.5rem}
