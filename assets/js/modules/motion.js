@@ -39,10 +39,6 @@ function createSectionTransitions() {
   if (hero && services) {
     gsap.set(hero, { zIndex: 1 });
     gsap.set(services, { position: "relative", zIndex: 2 });
-    gsap.fromTo(services, { yPercent: 10 }, {
-      yPercent: 0, ease: "none",
-      scrollTrigger: { trigger: services, start: "top bottom", end: "top top", scrub: 0.8 }
-    });
     ScrollTrigger.create({
       trigger: hero, start: "top top", end: isMobile ? "+=65%" : "+=85%",
       pin: true, pinSpacing: false, pinType: "transform", anticipatePin: 1, invalidateOnRefresh: true
