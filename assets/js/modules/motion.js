@@ -36,7 +36,7 @@ function animatePageIntro({ isMobile, isTablet }) {
         autoAlpha: 1,
         duration: 1.45,
         ease: "power2.out",
-        clearProps: "transform,opacity,visibility"
+        clearProps: "opacity,visibility"
       },
       0
     );
