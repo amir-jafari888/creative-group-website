@@ -25,3 +25,20 @@ These are project-adapted guides informed by the upstream resources linked in ea
 - Avoid scroll-locking pin sequences and overlapping ScrollTriggers.
 - Test reverse scrolling, resize/refresh behavior, and console errors.
 - Do not claim visual verification unless the browser was actually tested.
+
+
+## UI and UX design skills
+For visual design, page structure, responsive UI, design-system decisions, or interface reviews, consult:
+- Art direction and page composition: `.agents/skills/taste-skill/SKILL.md`
+- UI/UX design intelligence, searchable guidelines, and stack-aware recommendations: `.agents/skills/ui-ux-pro-max/SKILL.md`
+
+Project-specific constraints take precedence over generic skill suggestions:
+- Preserve the existing classic PHP + Vite architecture and responsive CSS file organization.
+- This project uses Persian/English RTL/LTR, Estedad for Persian, Manrope for UI/body, and Cormorant Garamond only for English display text.
+- Do not introduce React, Tailwind, a new CSS framework, or unrelated dependencies based on a skill's examples.
+- Use the skills as design/review guidance; do not blindly copy their sample code or visual defaults.
+- Keep the approved brand direction and existing verified content/assets unless the user explicitly approves a change.
+
+### Skill runtime prerequisites
+- `taste-skill`: Node.js 22+ and an installed Chrome, Edge, or Chromium browser. Its documented scripts install no npm packages.
+- `ui-ux-pro-max`: Python 3.x. Its documented search scripts use the Python standard library and require no third-party Python packages.
