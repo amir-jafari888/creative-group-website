@@ -244,7 +244,7 @@ media.add(
   },
   (context) => {
     const { isMobile, isTablet, reduceMotion } = context.conditions;
-    const cleanupNavigation = navigation({ reducedMotion });
+    const cleanupNavigation = navigation({ reducedMotion: reduceMotion });
 
     if (reduceMotion) {
       return cleanupNavigation;
