@@ -14,18 +14,19 @@ $allowedPages = ['home', 'services', 'about', 'portfolio', 'contact'];
 $requestedPage = $_GET['page'] ?? 'home';
 $pageIsValid = is_string($requestedPage) && in_array($requestedPage, $allowedPages, true);
 $page = $pageIsValid ? $requestedPage : 'home';
-if (!$pageIsValid) {
-    http_response_code(404);
+if (!$pageIsValid) http_response_code(404);
+
+$pageUrl = static fn (string $target): string => '?' . http_build_query(['page' => $target, 'lang' => $lang]);
+$languageUrl = static fn (string $target): string => '?' . http_build_query(['page' => $page, 'lang' => $target]);
+
+$method = strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
+if (!in_array($method, ['GET', 'HEAD', 'POST'], true)) {
+    http_response_code(405);
+    header('Allow: GET, HEAD, POST');
+    exit;
 }
 
-$pageUrl = static function (string $target) use ($lang): string {
-    return '?' . http_build_query(['page' => $target, 'lang' => $lang]);
-};
-$languageUrl = static function (string $target) use ($page): string {
-    return '?' . http_build_query(['page' => $page, 'lang' => $target]);
-};
-
-if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
+if ($method === 'POST') {
     if ($page !== 'contact') {
         http_response_code(405);
         header('Allow: GET, HEAD');
@@ -38,7 +39,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     } elseif (!RateLimiter::allow('contact:' . (string) ($_SERVER['REMOTE_ADDR'] ?? 'unknown'), 5, 900)) {
         $flash = 'rate';
     } elseif (Validator::string($_POST['website'] ?? '', 200) !== null) {
-        // Honeypot: silently accept bot submissions without sending them.
         $flash = 'sent';
     } else {
         $payload = [
