@@ -20,16 +20,16 @@ $pageUrl = static fn (string $target): string => '?' . http_build_query(['page' 
 $languageUrl = static fn (string $target): string => '?' . http_build_query(['page' => $page, 'lang' => $target]);
 
 $method = strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
-if (!in_array($method, ['GET', 'HEAD', 'POST'], true)) {
+if (!in_array($method, ['GET', 'POST'], true)) {
     http_response_code(405);
-    header('Allow: GET, HEAD, POST');
+    header('Allow: GET, POST');
     exit;
 }
 
 if ($method === 'POST') {
     if ($page !== 'contact') {
         http_response_code(405);
-        header('Allow: GET, HEAD');
+        header('Allow: GET');
         exit;
     }
 
