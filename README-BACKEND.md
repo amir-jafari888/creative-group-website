@@ -28,7 +28,6 @@ The contact form uses PHP mail(). Configure CONTACT_TO_EMAIL and CONTACT_FROM_EM
 
 - PHP 8.1+
 - pdo_mysql for future MySQL connection use
-- mbstring for UTF-8 validation
 - Apache with .htaccess / mod_headers support for the included directory and response protections
 
 ## Security notes
