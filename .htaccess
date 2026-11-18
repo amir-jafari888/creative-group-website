@@ -1,0 +1,13 @@
+Options -Indexes
+DirectoryIndex index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^TRACE$ [NC]
+    RewriteRule .* - [F]
+</IfModule>
+<FilesMatch "(^\.env|^\.git|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.mjs|phpunit\.xml(\.dist)?)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+</IfModule>
