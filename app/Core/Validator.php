@@ -6,7 +6,14 @@ final class Validator
     {
         if (!is_string($value)) return null;
         $value = trim($value);
-        if ($value === '' || mb_strlen($value, 'UTF-8') > $maxLength) return null;
+        if ($value === '') return null;
+        if (function_exists('mb_strlen')) {
+            $length = mb_strlen($value, 'UTF-8');
+        } else {
+            $length = preg_match_all('/./us', $value, $matches);
+            if ($length === false) return null;
+        }
+        if ($length > $maxLength) return null;
         return $value;
     }
     public static function email(mixed $value): ?string
