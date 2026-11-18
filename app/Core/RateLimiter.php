@@ -7,12 +7,16 @@ final class RateLimiter
         $limit = max(1, $limit);
         $windowSeconds = max(1, $windowSeconds);
         $file = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'ctg-rate-' . hash('sha256', $key) . '.json';
+        if (is_link($file)) return false;
         $handle = @fopen($file, 'c+');
         if ($handle === false) return false;
+        @chmod($file, 0600);
         $locked = false;
         try {
             $locked = flock($handle, LOCK_EX);
             if (!$locked) return false;
+            $stat = fstat($handle);
+            if ($stat === false || (($stat['mode'] & 0170000) !== 0100000)) return false;
             rewind($handle);
             $raw = stream_get_contents($handle);
             $timestamps = json_decode($raw !== false && $raw !== '' ? $raw : '[]', true);
@@ -25,7 +29,6 @@ final class RateLimiter
             ftruncate($handle, 0);
             if (fwrite($handle, json_encode($timestamps, JSON_THROW_ON_ERROR)) === false) return false;
             fflush($handle);
-            @chmod($file, 0600);
             return true;
         } finally {
             if ($locked) flock($handle, LOCK_UN);
