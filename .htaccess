@@ -5,7 +5,7 @@ DirectoryIndex index.php
     RewriteCond %{REQUEST_METHOD} ^TRACE$ [NC]
     RewriteRule .* - [F]
 </IfModule>
-<FilesMatch "(^\.env|^\.git|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.mjs|phpunit\.xml(\.dist)?)$">
+<FilesMatch "(^\.env|^\.git|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.mjs|phpunit\.xml(\.dist)?|\.(sql|log|bak|old|orig|swp)$)">
     Require all denied
 </FilesMatch>
 <IfModule mod_headers.c>
