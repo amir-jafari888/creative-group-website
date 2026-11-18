@@ -28,6 +28,6 @@ final class SecurityHeaders
             'connect-src ' . implode(' ', $connectSources),
         ];
         header('Content-Security-Policy: ' . implode('; ', $policy));
-        if ($isHttps) header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+        if ($isHttps) header('Strict-Transport-Security: max-age=15552000');
     }
 }
