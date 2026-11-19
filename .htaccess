@@ -1,0 +1,14 @@
+Options -Indexes
+DirectoryIndex index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^TRACE$ [NC]
+    RewriteRule .* - [F,L]
+    RewriteRule (^|/)\.(git|svn|hg)(/|$) - [F,L,NC]
+</IfModule>
+<FilesMatch "(^\.env|^\.git|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.mjs|phpunit\.xml(\.dist)?|\.(sql|log|bak|old|orig|swp)$)">
+    Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+</IfModule>
